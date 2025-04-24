@@ -1,0 +1,35 @@
+.container {
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin: 20px;
+}
+
+.title {
+  font-size: 2em;
+  margin-bottom: 10px;
+}
+
+.author {
+  font-style: italic;
+  margin-bottom: 15px;
+}
+
+.text {
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.tags {
+  margin-top: 10px;
+}
+
+.tag {
+  display: inline-block;
+  margin-right: 5px;
+  padding: 5px 8px;
+  background-color: #f0f0f0;
+  border-radius: 5px;
+  font-size: 0.9em;
+}
