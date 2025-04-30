@@ -3,7 +3,7 @@ import axios, { AxiosError } from 'axios';
 import { User } from './types';
 import { RootState } from './store';
 
-interface UserState {
+export interface UserState {
   users: User[];
   user: User | null;
   loading: 'idle' | 'pending' | 'succeeded' | 'failed';
@@ -186,7 +186,7 @@ const userSlice = createSlice({
   },
 });
 
-export default userSlice.reducer;
+export default userSlice;
 export const selectUsers = (state: { user: { users: User[] } }) =>
   state.user.users;
 export const selectUser = (state: { user: { user: User | null } }) =>

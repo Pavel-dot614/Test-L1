@@ -6,6 +6,7 @@ import { Post } from '../store/types';
 import axios from 'axios';
 import styles from './styles/NewsDetail.module.css';
 import { formatDate, formatTimeAgo } from '../utils/dateUtils';
+import PostMeta from './PostMeta';
 
 const NewsDetail: FC = () => {
   const { postId } = useParams<{ postId: string }>();
@@ -52,9 +53,10 @@ const NewsDetail: FC = () => {
   return (
     <div className={styles.container}>
       <h1 className={styles.title}>{post.title}</h1>
-      <p className={styles.author}>
-        Author: {post.author?.firstName} {post.author?.lastName}
-      </p>
+      <PostMeta
+  author={post.author}
+  createdAt={post.createdAt}
+/>
       <p className={styles.date}>
         Published on: {formattedDate} ({timeAgo})
       </p>

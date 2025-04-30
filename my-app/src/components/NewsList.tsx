@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { FC, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import {
   fetchNews,
@@ -15,7 +15,7 @@ import { Link } from 'react-router-dom';
 import styles from './styles/NewsList.module.css';
 import { isWeekend } from '../utils/weekend';
 
-const NewsList: React.FC = () => {
+const NewsList: FC = () => {
   const news = useSelector(selectNews);
   const total = useSelector(selectNewsTotal);
   const loading = useSelector(selectNewsLoading);
@@ -35,7 +35,7 @@ const NewsList: React.FC = () => {
     return <div>Loading news...</div>;
   }
 
-  if (error) {
+  if (loading === 'failed' && error) {
     return <div>Error: {error}</div>;
   }
 

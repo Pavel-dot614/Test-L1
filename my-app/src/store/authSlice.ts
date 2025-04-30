@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios, { AxiosError } from 'axios';
 
-interface AuthState {
+export interface AuthState {
   token: string | null;
   user: User | null;
   loading: 'idle' | 'pending' | 'succeeded' | 'failed';
@@ -225,4 +225,4 @@ export const selectAuthLoading = (state: {
 export const selectAuthError = (state: { auth: { error: string | null } }) =>
   state.auth.error;
 
-export default authSlice.reducer;
+export default authSlice;

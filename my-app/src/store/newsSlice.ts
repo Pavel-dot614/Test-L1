@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios, { AxiosError } from 'axios';
 import { NewsResponse, Post } from './types';
 
-interface NewsState {
+export interface NewsState {
   posts: Post[];
   total: number;
   loading: 'idle' | 'pending' | 'succeeded' | 'failed';
@@ -93,13 +93,12 @@ const newsSlice = createSlice({
   },
 });
 
-export default newsSlice.reducer;
-export const selectNews = (state: { news: { posts: Post[] } }) =>
-  state.news.posts;
-export const selectNewsTotal = (state: { news: { total: number } }) =>
-  state.news.total;
-export const selectNewsLoading = (state: {
-  news: { loading: 'idle' | 'pending' | 'succeeded' | 'failed' };
-}) => state.news.loading;
-export const selectNewsError = (state: { news: { error: string | null } }) =>
-  state.news.error;
+export default newsSlice;
+export const selectNews = (state: { newsReducer: NewsState }) =>
+  state.newsReducer.posts;
+export const selectNewsTotal = (state: { newsReducer: NewsState }) =>
+  state.newsReducer.total;
+export const selectNewsLoading = (state: { newsReducer: NewsState }) =>
+  state.newsReducer.loading;
+export const selectNewsError = (state: { newsReducer: NewsState }) =>
+  state.newsReducer.error;
